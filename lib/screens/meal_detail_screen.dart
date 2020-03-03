@@ -4,6 +4,9 @@ import 'package:foodi/dummy_data.dart';
 
 class MealDetailScreen extends StatelessWidget {
   static const routeName = "/meal_details_screen";
+  final Function toogleFavourite;
+  final Function isFavourite;
+  MealDetailScreen(this.toogleFavourite, this.isFavourite);
 
   @override
   Widget build(BuildContext context) {
@@ -92,6 +95,16 @@ class MealDetailScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.orange[100],
+        child: Icon(
+          isFavourite(selectedMeal.id) ? Icons.favorite : Icons.favorite_border,
+          color: Colors.red,
+        ),
+        onPressed: () {
+          toogleFavourite(selectedMeal.id);
+        },
       ),
     );
   }

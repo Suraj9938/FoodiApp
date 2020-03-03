@@ -5,7 +5,6 @@ class FilterScreen extends StatefulWidget {
   static const String routeName = '/filter_screen';
   final Function setFilter;
   final Map<String, bool> currentFilters;
-
   FilterScreen({this.setFilter, this.currentFilters});
 
   @override
